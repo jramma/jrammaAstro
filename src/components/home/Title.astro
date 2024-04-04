@@ -1,0 +1,26 @@
+---
+import "../../assets/scss/h1.scss";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="container">
+  <h1 id="myElement" class="txt anim-text-flow">{title}</h1>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const txt = document.querySelector(".txt");
+    const html = txt.textContent.trim();
+    const chars = html.split("");
+
+    txt.innerHTML = "<span>" + chars.join("</span><span>") + "</span>";
+
+    setTimeout(() => {
+        txt.innerHTML = html;
+    }, 16000);
+});
+</script>
