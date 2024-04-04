@@ -1,17 +1,28 @@
 ---
-import DefaultLayout from '../layouts/Layout.astro'
+import DefaultLayout from "../layouts/Layout.astro";
 ---
 
 <DefaultLayout title="404">
-  <section class="my-12">
+  <div class="text-white p-24">
+    <section class="my-12">
+      <div class="container">
+        <h1 class="text-8xl">404</h1>
+      </div>
+    </section>
+    <section class="my-12">
+      <div class="">
+        <p class="mb-12">
+          This page does not exist. Don't worry though, we got you.
+        </p>
+        <a class="ml-4 bg-purple-400 p-4 rounded-xl" href="/"
+          >Let's get you home Astronout 🚀</a
+        >
+      </div>
+    </section>
+  </div>
+  <footer>
     <div class="container">
-      <h1>404</h1>
+      <p class="text-center text-white">Made with ❤️ by <a href="https://github.com/jramma" class="text-purple-200">jramma</a></p>
     </div>
-  </section>
-  <section class="my-12">
-    <div class="space-content container">
-      <p class="text-2xl">This page does not exist. Don't worry though, we got you.</p>
-      <a class="button" href="/">Let's get you home Astronout 🚀</a>
-    </div>
-  </section>
+  </footer>
 </DefaultLayout>
