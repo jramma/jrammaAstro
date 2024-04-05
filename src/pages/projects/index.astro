@@ -4,13 +4,33 @@ import SectionProjects from "../../components/projects/SectionProjects.astro";
 import SectionProjectsOposite from "../../components/projects/SectionProjectsOposite.astro";
 import Menu from "../../components/projects/Menu.astro";
 import master from "../../data/master.json";
+import { fade} from "astro:transitions";
+const anim = {
+  old: {
+    name: 'fadeIn',
+    duration: '0.2s',
+    easing: 'linear',
+    fillMode: 'forwards',
+  },
+  new: {
+    name: 'fadeOut',
+    duration: '0.3s',
+    easing: 'linear',
+    fillMode: 'backwards',
+  }
+};
+
+const myFade = {
+  forwards: anim,
+  backwards: anim,
+};
 ---
 
 <PagesLayout title="Jramma">
   <main class="w-full text-white mb-22">
     <Menu />
-    <div class="lines">
-      <p class="marquee">
+    <div class="lines" transition:animate={myFade}>
+      <p class="marquee" >
         Desenvolupador de programari / Projectes públics al github / UX i UI /
         Màster diseny web i aplicacions / Hackathons / Projectes públics al
         <a
@@ -22,12 +42,12 @@ import master from "../../data/master.json";
       </p>
     </div>
     <div class="flex justify-center items-center h-1/2">
-      <h2 class="text-[15vw]">DEVELOPER</h2>
+      <h2 class="text-[15vw]" transition:animate={fade({duration: '2s'})}>DEVELOPER</h2>
     </div>
-    <div class="mb-40">
-    <SectionProjects title="title" contents={master} />
-    <SectionProjectsOposite title="title" contents={master} />
-    <SectionProjects title="title" contents={master} /></div>
+    <div class="mb-40" transition:animate={fade({duration: '1s'})}>
+    <SectionProjects title="PROJECTES MASTER" contents={master} />
+    <SectionProjectsOposite title="P. PÚBLICS" contents={master} />
+    <SectionProjects title="P. HACKATONS" contents={master} /></div>
   </main>
 </PagesLayout>
 

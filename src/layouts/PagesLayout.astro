@@ -2,7 +2,7 @@
 interface Props {
   title: string;
 }
-import { ViewTransitions } from "astro:transitions";
+import { ViewTransitions, slide } from "astro:transitions";
 const { title } = Astro.props;
 import { Icon } from "astro-icon/components";
 ---
@@ -29,7 +29,7 @@ import { Icon } from "astro-icon/components";
       <a
         class="z-50 text-left text-white text-4xl absolute top-8 left-8 hover-effect"
         href="/"
-        ><h1 transition:animate="slide">
+        ><h1 transition:animate={slide({duration: '1s'})}>
           @{title.toUpperCase()}
         </h1>
       </a>

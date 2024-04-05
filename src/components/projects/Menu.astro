@@ -1,6 +1,11 @@
-<div class="sticky top-24 text-white ml-8">
-    <ol>
-        <li>Fotografia</li>
-        <li>Contacte</li>
-    </ol>
+---
+import {  slide } from "astro:transitions";
+
+---
+
+<div class="sticky top-24 text-white ml-8" transition:animate={slide({duration: '1s'})}>
+  <ol>
+    <li><a href="/foto">Fotografia</a></li>
+    <li><a href="/contact">Contacte</a></li>
+  </ol>
 </div>

@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/home/Title.astro";
+import { fade } from 'astro:transitions';
+
 ---
 
 <Layout title="Jramma">
@@ -10,11 +12,11 @@ import Title from "../components/home/Title.astro";
         <Title title="jramma">
       </div>
       <ul class="flex gap-12 w-full justify-center items-center mb-4">
-        <li>
+        <li transition:animate={fade({ duration: '0.2s' })}>
           <a href="/projects">Projectes</a>
-        </li><li>
+        </li><li transition:animate={fade({ duration: '0.5s' })}>
           <a href="/foto">Fotografia</a>
-        </li><li>
+        </li><li transition:animate={fade({ duration: '1s' })}>
           <a href="/contact">Contacte</a>
         </li>
       </ul>
@@ -22,7 +24,7 @@ import Title from "../components/home/Title.astro";
     <!-- <div class="w-full h-1 bg-white"></div> -->
     <div class="h-[50%]">
       <div class="flex flex-col justify-center items-center mt-8">
-        <div class="max-w-2xl">
+        <div class="max-w-2xl"  transition:animate={fade({ duration: '1.5s' })}>
           <p class="max-w-xl text-center">
             el sentit es "aclareix" només per mitjà d'una interpretació de
             l'horitzó i dels horitzons constantment conjurats de nou. La
