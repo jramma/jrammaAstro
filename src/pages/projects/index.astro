@@ -1,27 +1,33 @@
 ---
 import PagesLayout from "../../layouts/PagesLayout.astro";
 import SectionProjects from "../../components/projects/SectionProjects.astro";
+import SectionProjectsOposite from "../../components/projects/SectionProjectsOposite.astro";
 import Menu from "../../components/projects/Menu.astro";
+import master from "../../data/master.json";
 ---
 
 <PagesLayout title="Jramma">
-  <main class="w-full h-screen text-white">
+  <main class="w-full text-white mb-22">
     <Menu />
     <div class="lines">
       <p class="marquee">
         Desenvolupador de programari / Projectes públics al github / UX i UI /
         Màster diseny web i aplicacions / Hackathons / Projectes públics al
-        github
+        <a
+          class="underline-offset-1 hover:text-purple-400 cursor-pointer"
+          href="https://github.com/jramma"
+        >
+          github</a
+        >
       </p>
     </div>
     <div class="flex justify-center items-center h-1/2">
-        <h2 class="text-[15vw]">
-          DEVELOPER
-        </h2>
+      <h2 class="text-[15vw]">DEVELOPER</h2>
     </div>
-    <SectionProjects />
-    <SectionProjects />
-    <SectionProjects />
+    <div class="mb-40">
+    <SectionProjects title="title" contents={master} />
+    <SectionProjectsOposite title="title" contents={master} />
+    <SectionProjects title="title" contents={master} /></div>
   </main>
 </PagesLayout>
 
@@ -43,6 +49,7 @@ import Menu from "../../components/projects/Menu.astro";
     z-index: -1;
   }
   .marquee {
+    z-index: 200;
     white-space: nowrap; /* Para que el texto no se divida en múltiples líneas */
     overflow: hidden; /* Oculta el contenido que se desborda */
     position: relative;

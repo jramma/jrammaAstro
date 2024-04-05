@@ -4,6 +4,8 @@ interface Props {
 }
 import { ViewTransitions } from 'astro:transitions';
 const { title } = Astro.props;
+import { Icon } from "astro-icon/components";
+
 ---
 
 <!doctype html>
@@ -25,6 +27,28 @@ const { title } = Astro.props;
     </head>
   <body>
     <slot />
+    <footer class="border-t border-white flex justify-between pl-8 pr-8 pt-8 pb-12">
+      <div class="text-white">
+        <p>UX and UI made with ❤️ by Jramma</p>
+        <p class="mt-2">📍 Barcelona, Catalunya</p>
+        <p class="mt-8">Software dev, skipper & philosopher.</p>
+      </div>
+      <!-- <div class="text-white text-right">
+        <p>Improved with ❤️ by Mortensen </p>
+        <p class="mt-2">Torres i Amat 21, 3r<br>08001 Barcelona</p>
+      </div> -->
+      <div class="text-white text-right flex gap-8">
+        <a href="https://www.instagram.com/jramma1/">
+          <Icon class="h-6 w-6" name="insta" />
+        </a>
+        <a href="https://t.me/jramma">
+          <Icon class="h-6 w-6" name="telegram" />
+        </a>
+        <a href="https://www.linkedin.com/in/jramma/">
+          <Icon class="h-6 w-6" name="linkedin" />
+        </a>
+      </div>
+    </footer>
   </body>
 </html>
 <style is:global>
