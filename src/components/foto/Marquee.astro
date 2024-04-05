@@ -1,0 +1,49 @@
+<div class="h-[40vh] flex items-center justify-center">
+    <div class="marquee">
+      <div class="marquee-content">
+        <span>MES FOTOGRAFIES/ </span><span class="text-gray-400"
+          >ALTRES APARTATS/
+        </span><span class="text-gray-600">DESTACATS/ </span><span
+          >MES FOTOGRAFIES/
+        </span><span class="text-gray-400">ALTRES APARTATS/ </span><span
+          class="text-gray-600"
+          >DESTACATS/
+        </span>
+      </div>
+    </div>
+  </div>
+  <style>
+    .marquee {
+      white-space: nowrap; /* Para que el texto no se divida en múltiples líneas */
+      overflow: hidden; /* Oculta el contenido que se desborda */
+      position: relative;
+      background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0),
+        #000,
+        rgba(0, 0, 0, 0)
+      ); /* Gradiente para difuminar los extremos */
+      color: white; /* Cambia el color del texto según sea necesario */
+      padding: 10px;
+    }
+  
+    .marquee-content {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 40s linear infinite;
+    }
+  
+    .marquee span {
+      font-size: 5vw;
+    }
+  
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+  

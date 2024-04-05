@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+import img1 from "../../assets/images/horizonte/img-1.jpg";
+---
+
+<div class="p-2 z-20">
+  <div class="flex flex-col gap-8 w-[31vw] max-h-[31vw]">
+    <div>
+      <Image
+        src={img1}
+        alt="foto"
+        width="850"
+        height="800"
+        class="rounded-3xl w-[31vw] h-[31vw]"
+      />
+    </div>
+  </div>
+</div>

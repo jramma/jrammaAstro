@@ -1,12 +1,24 @@
 ---
-import PagesLayout from "../../layouts/PagesLayout.astro";
+import { Icon } from "astro-icon/components";
+import StaticPage from "../../layouts/StaticPage.astro";
 ---
 
-<PagesLayout title="Jramma">
-  <main>
-    <a href="/">Jramma</a>
+<StaticPage title="Jramma">
+  <main class="h-[75%]">
+    <div class="pt-40 flex gap-12">
+      <!-- <a href="https://www.instagram.com/jramma1/">
+        <Icon class="h-12 w-12" name="insta2" />
+      </a>  -->
+      <a href="https://t.me/jramma">
+        <Icon class="h-12 w-12" name="telegram" />
+      </a>
+      <a href="https://www.linkedin.com/in/jramma/">
+        <Icon class="h-12 w-12" name="linkedin" />
+      </a>
+     
+    </div>
   </main>
-</PagesLayout>
+</StaticPage>
 
 <style>
   main {
@@ -17,14 +29,5 @@ import PagesLayout from "../../layouts/PagesLayout.astro";
     color: white;
     font-size: 20px;
     line-height: 1.6;
-  }
-  .astro-a {
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    transform: translatex(-50%);
-    width: 220px;
-    height: auto;
-    z-index: -1;
   }
 </style>
