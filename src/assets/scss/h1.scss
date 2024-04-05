@@ -1,64 +1,50 @@
-h1 {
-    font-family: "Inter Tight", sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    letter-spacing: -2px;
-    line-height: 18vh;
-    text-align: center;
-    color: var(--token-b68e549f-df5d-4726-be19-d216abd761d7, #ffffff);
-    text-decoration: none;
-    text-transform: uppercase;
-    text-size-adjust: 100%;
-    font-size: 14vw;
-}
-
-
-/*
- * Animation module with all animation code
- */
+/* Animation module with all animation code */
 .anim-text-flow,
 .anim-text-flow-hover:hover {
-  /*
-   * Animation variables
-   */
+  /* Animation variables */
   $animationSteps: 20;
-  $animationDuration: 50;
+  $animationDuration: 5s;
   $animationElement: span;
   $animationElementsCount: 100;
-  $delayBetweenLetters: 1;
+  $delayBetweenLetters: 0.1s;
 
-  /*
-   * Elements settings
-   */
+  /* Elements settings */
   #{$animationElement} {
     animation-name: anim-text-flow-keys;
-    animation-duration: #{$animationDuration}s;
+    animation-duration: $animationDuration;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-fill-mode: forwards;
   }
 
-  /*
-   * Keyframe loop
-   */
+  /* Keyframe loop */
   @keyframes anim-text-flow-keys {
     @for $i from 0 through $animationSteps {
-      #{percentage($i * (1 / $animationSteps))} {
+      #{percentage($i / $animationSteps)} {
         color: hsla(0, 0%, random(100), 1);
       }
     }
   }
 
-  /*
-   * Element animation delay loop
-   */
+  /* Element animation delay loop */
   $totalDelayTime: $animationElementsCount * $delayBetweenLetters;
 
   @for $i from 1 through $animationElementsCount {
     #{$animationElement}:nth-of-type(#{$i}) {
-      animation-delay: #{($i * $delayBetweenLetters) - $totalDelayTime}s;
+      animation-delay: ($i * $delayBetweenLetters) - $totalDelayTime;
     }
   }
 }
 
-
+h1 {
+  font-family: "Inter Tight", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 18vh;
+  text-align: center;
+  color: #ffffff; /* Use a color variable if available */
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14vw;
+}
