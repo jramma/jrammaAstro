@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "url": "../../assets/images/horizonte/img-1.jpg",
+        "data": {
+            "name": "Imagen1",
+            "text": "Esta es la imagen 1"
+        },
+        "gallery": "Galería 1"
+    },
+    {
+        "id": 2,
+        "url": "../../assets/images/horizonte/img-1.jpg",
+        "data": {
+            "name": "Imagen 2",
+            "text": "Esta es la imagen 2"
+        },
+        "gallery": "Galería 1"
+    },
+    {
+        "id": 3,
+        "url": "../../assets/images/horizonte/img-1.jpg",
+        "data": {
+            "name": "Imagen 3",
+            "text": "Esta es la imagen 3"
+        },
+        "gallery": "Galería 2"
+    }
+]
