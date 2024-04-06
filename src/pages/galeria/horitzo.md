@@ -4,5 +4,6 @@ title: "HORITZO"
 lloc: Catalunya
 data: "(01'24)"
 autor: "Pepe Ramos"
-imatges: ["/img/a.jpg", "/img/a.jpg", "/img/a.jpg"]
+imatges: ["/img/img1.webp","/img/img2.webp","/img/img3.webp","/img/img4.webp","/img/img5.webp","/img/img6.webp","/img/img7.webp"]
+
 ---

@@ -1,0 +1,60 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <main class="h-screen text-white flex w-full relative">
+    <div class="p-4 absolute top-0 right-0">
+      <img src={frontmatter.name} class="max-h-[40vh] max-w-[30vw]" />
+      <a href=`/galeria/${frontmatter.galeria}`>{frontmatter.galeria.toUpperCase()}</a>    </div>
+    <div class="w-full">
+      <div class="p-4 pt-[5%]">
+            <p>{frontmatter.pubDate.slice(0, 10)}</p>
+            <p><em>{frontmatter.description}</em></p>
+            <p>Autor: {frontmatter.author}</p>
+            <p>{frontmatter.title}</p>
+            <!-- <div class="tags">
+            {
+                frontmatter.tags.map((tag: any) => (
+                <p class="tag">
+                    <a href={`/tags/${tag}`}>{tag}</a>
+                </p>
+                ))
+            }
+            </div> -->
+        </div>
+        <div class="max-h-1/2 p-4 max-w-full overflow-hidden bottom-0 absolute">
+          <img src={frontmatter.name} class="object-cover max-h-1/2 w-[60vw]" />
+        </div>
+        <div class="absolute bottom-4 right-4">
+          <p>
+            <a href=`/imatge/${frontmatter.prev}/`>prev</a> / <a href=`/imatge/${frontmatter.next}`>next</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+<style>
+  a {
+    position: relative;
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.4s;
+  }
+
+  a:hover::after {
+    width: 100%;
+  }
+</style>
