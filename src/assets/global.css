@@ -1,3 +1,18 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    --color-text-main: 0 0 0; /* #000000 */
+    --color-bg-main: 245 245 245; /* #FFFFFF */
+    --color-bg-muted: 245 245 245; /* #FFFFFF */
+    --color-border-main: 0 0 0; /* #000000 */
+  }
+  html.dark {
+    --color-text-main: 245 245 245; /* #FFFFFF */
+    --color-bg-main: 0 0 0; /* #000000 */
+    --color-bg-muted: 0 0 0; /* #000000 */
+    --color-border-main: 245 245 245; /* #FFFFFF */
+  }
+}

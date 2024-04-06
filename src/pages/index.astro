@@ -2,11 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/home/Title.astro";
 import { fade } from 'astro:transitions';
-
+import Theme from "../components/Theme.astro"
 ---
 
 <Layout title="Jramma">
-  <main class="text-white h-screen">
+  <main class="dark:text-white h-screen">
+    <div class="absolute top-1/2 left-0 w-full h-px bg-black dark:bg-white"></div>
+    <div class="absolute right-8 top-8">
+      <Theme />
+    </div>
     <div class="h-[50%] flex flex-col justify-end mb-0">
       <div class="flex justify-center items-center mb-12">
         <Title title="jramma">
@@ -15,7 +19,7 @@ import { fade } from 'astro:transitions';
         <li transition:animate={fade({ duration: '0.2s' })}>
           <a href="/projects">Projectes</a>
         </li><li transition:animate={fade({ duration: '0.5s' })}>
-          <a href="/galeria">Fotografia</a>
+          <a href="/galeria/horitzo">Fotografia</a>
         </li><li transition:animate={fade({ duration: '1s' })}>
           <a href="/contact">Contacte</a>
         </li>
@@ -39,19 +43,24 @@ import { fade } from 'astro:transitions';
     </div>
   </main>
   <footer>
-    <div class="text-white flex justify-center items-center h-16">
+    <div class="flex justify-center items-center h-16">
       <p>© 2024 Jramma</p>
     </div>
   </footer>
 </Layout>
+<script>
+  // Comprueba si el tema actual es 'dark'
+  const isDark = localStorage.getItem('theme') === 'dark';
 
+  
+</script>
 <style>
   a {
     position: relative;
     text-decoration: none;
     overflow: hidden;
   }
-
+  
   a::after {
     content: "";
     position: absolute;

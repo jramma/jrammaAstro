@@ -2,10 +2,9 @@
 interface Props {
   title: string;
 }
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 const { title } = Astro.props;
 import { Icon } from "astro-icon/components";
-
 ---
 
 <!doctype html>
@@ -24,10 +23,17 @@ import { Icon } from "astro-icon/components";
       rel="stylesheet"
     />
     <ViewTransitions />
-    </head>
-  <body>
+    <script>
+      if (localStorage.theme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+  </head>
+  <body class="dark:bg-black">
     <slot />
-    <footer class="border-t border-white flex justify-between pl-8 pr-8 pt-8 pb-12">
+    <footer
+      class="border-t border-white flex justify-between pl-8 pr-8 pt-8 pb-12"
+    >
       <div class="text-white">
         <p>UX and UI made with ❤️ by Jramma</p>
         <p class="mt-2">📍 Barcelona, Catalunya</p>
@@ -49,38 +55,29 @@ import { Icon } from "astro-icon/components";
         </a>
       </div>
     </footer>
+    <style is:global>
+     
+      :root {
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          rgb(var(--accent-light)) 30%,
+          white 60%
+        );
+        --font-family: "Roboto Mono", monospace;
+      }
+
+      body {
+        font-family: var(--font-family);
+      }
+      html {
+        font-family: var(--font-family);
+
+        background-size: 224px;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  body::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: white;
-  }
-  :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-    --font-family: "Roboto Mono", monospace;
-  }
-
-  body {
-    font-family: var(--font-family);
-  }
-  html {
-    font-family: var(--font-family);
-    background: black;
-    background-size: 224px;
-  }
-  
-</style>
