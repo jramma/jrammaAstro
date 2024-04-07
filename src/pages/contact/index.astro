@@ -1,11 +1,16 @@
 ---
 import { Icon } from "astro-icon/components";
 import StaticPage from "../../layouts/StaticPage.astro";
+import Theme from "../../components/Theme.astro"
+
 ---
 
 <StaticPage title="Jramma">
   <main class="h-[75vh] content-center">
-    <div class="flex justify-center content-center gap-8">
+    <div class="absolute right-8 top-8">
+      <Theme />
+    </div>
+    <div class="flex justify-center content-center gap-8 dark:text-white dark:border-white">
       <a href="https://www.instagram.com/jramma1/">
         <Icon class="h-12 w-12" name="insta" />
       </a>
