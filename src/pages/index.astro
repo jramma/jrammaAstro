@@ -12,35 +12,37 @@ import Theme from "../components/Theme.astro"
       <Theme />
     </div>
     <div class="h-[50%] flex flex-col justify-end mb-0">
-      <div class="flex justify-center items-center mb-12">
+      <div class="flex justify-center items-center sm:mb-12 mb-2">
         <Title title="jramma">
       </div>
-      <ul class="flex gap-12 w-full justify-center items-center mb-4">
-        <li transition:animate={fade({ duration: '0.2s' })}>
+      <ul class="flex flex-col sm:flex-row gap-2 sm:gap-12 w-full justify-center items-center mb-8 sm:mb-4">
+        <li class="transition-all duration-200 sm:duration-500">
           <a href="/projects">Projectes</a>
-        </li><li transition:animate={fade({ duration: '0.5s' })}>
+        </li>
+        <li class="transition-all duration-200 sm:duration-500">
           <a href="/galeria/horitzo">Fotografia</a>
-        </li><li transition:animate={fade({ duration: '1s' })}>
+        </li>
+        <li class="transition-all duration-200 sm:duration-500">
           <a href="/contact">Contacte</a>
         </li>
       </ul>
     </div>
     <div class="h-[50%]">
       <div class="flex flex-col justify-center items-center mt-8">
-        <div class="max-w-2xl"  transition:animate={fade({ duration: '1.5s' })}>
+        <div class="max-w-2xl p-8"  transition:animate={fade({ duration: '1.5s' })}>
           <p class="max-w-xl text-center">
-            el sentit es "aclareix" només per mitjà d'una interpretació de
-            l'horitzó i dels horitzons constantment conjurats de nou. La
+            ..el sentit es "aclareix" només per mitjà d'una interpretació de
+            l'horitzó <span class="hidden md:block">i dels horitzons constantment conjurats de nou. La
             predeterminació mateixa és, sens dubte, imperfecta en tot moment,
-            però en la seva indeterminació d'una estructura determinada
+            però en la seva indeterminació d'una estructura determinada...</span>
           </p>
-          <div class="w-full flex justify-end items-end">
+          <div class="w-full flex justify-end items-end p-8">
             <p>Edmund Husserl</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="flex justify-center items-center h-16 dark:text-white">
+    <div class="absolute bottom-0 right-8">
       <p>© 2024 Jramma</p>
     </div>
   </main>

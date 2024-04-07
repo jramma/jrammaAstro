@@ -7,6 +7,10 @@ import Theme from "../components/Theme.astro";
 
 <Layout title={frontmatter.title}>
   <main class="h-screen dark:text-white flex w-full relative">
+    <div class="absolute right-4 top-4">
+      <a         href=`/galeria/${frontmatter.galeria}`
+      >Eixir</a> / <a href="/">Inici</a>
+    </div>
     <div class="absolute top-1/2 left-0 w-full h-px bg-black dark:bg-white"></div>
    
     <div class="hidden md:block p-4 absolute top-0 right-0">
@@ -19,7 +23,7 @@ import Theme from "../components/Theme.astro";
         >{frontmatter.galeria.toUpperCase()}</a
       >
     </div>
-    <div class="w-full">
+    <div class="w-full mt-12 md:mt-0">
       <div class="p-4 pt-[5%]" transition:animate={slide({ duration: "1s" })}>
         <p>{frontmatter.pubDate.slice(0, 10)}</p>
         <p><em>{frontmatter.description}</em></p>

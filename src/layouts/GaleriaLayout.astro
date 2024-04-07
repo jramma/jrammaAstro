@@ -58,10 +58,10 @@ import { Icon } from "astro-icon/components";
     </div>
     <div class="absolute bottom-0 pl-4 pb-4">
       <div class="flex flex-grow justify-between">
-        <p>{frontmatter.data}</p>
+        <p class="hidden sm:block">{frontmatter.data}</p>
         <div class="flex gap-8">
-          <a class="z-30" href="/galeries"> Més galeries </a>
-          <p>(100)</p>
+          <a class="z-30" href="/galeries"><Icon name='right'/>Més galeries</a>
+          <p class="mt-4 hidden sm:block">(2)</p>
         </div>
       </div>
       <div class="w-full flex items-center justify-center">
