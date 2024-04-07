@@ -52,11 +52,11 @@ import Theme from "../components/Theme.astro";
         </a>
       </div>
 
-      <div class="absolute bottom-4 right-4 flex gap-8">
-        <Theme />
+      <div class="md:absolute bottom-4 right-4 flex gap-8">
+        <div class="mb-2 hidden md:block"><Theme/></div>
         <p>
-          <a href=`/imatge/${frontmatter.prev}/`>prev</a> / <a
-            href=`/imatge/${frontmatter.next}`>next</a
+          <a href=`/imatge/${frontmatter.prev}/`>Anterior</a> / <a
+            href=`/imatge/${frontmatter.next}`>Següent</a
           >
         </p>
       </div>
