@@ -1,14 +1,13 @@
 ---
 layout: ../../layouts/ImgHorizontal.astro
-title: "Valencia"
+title: "Garraf"
 pubDate: 2022-07-01
 description: "Canon EOS RP RF24-105mm F4-7.1 IS STM"
 author: "Pepe Ramos"
-name: "/img/img1.webp"
-alt: "El logotipo completo de Astro."
-tags: ["astro", "bloguear", "aprender en público"]
-nextImg: "img2"
+name: "/img/img3.webp"
+nextImg: "/img/img4.webp"
+alt: "Garraf ple d'arbres"
 galeria: "horitzo"
-prev: "img1"
-next: "img2"
+prev: "img2"
+next: "img4"
 ---

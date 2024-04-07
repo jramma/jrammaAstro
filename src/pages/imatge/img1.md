@@ -1,14 +1,13 @@
 ---
 layout: ../../layouts/ImgHorizontal.astro
-title: "Valencia"
-pubDate: 2022-07-01
+title: "Port Olimpic Barceona"
+pubDate: 2023-08-22
 description: "Canon EOS RP RF24-105mm F4-7.1 IS STM"
 author: "Pepe Ramos"
 name: "/img/img1.webp"
-alt: "El logotipo completo de Astro."
-tags: ["astro", "bloguear", "aprender en público"]
-nextImg: "img2"
+nextImg: "/img/img2.webp"
+alt: "Verd estribor vermell bavor"
 galeria: "horitzo"
-prev: "img1"
+prev: "img7"
 next: "img2"
 ---

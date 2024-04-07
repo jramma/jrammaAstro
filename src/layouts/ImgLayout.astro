@@ -1,48 +1,57 @@
 ---
 import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
+import { fade, slide } from "astro:transitions";
+import Theme from "../components/Theme.astro";
 ---
 
 <Layout title={frontmatter.title}>
-  <main class="h-screen text-white flex w-full relative">
-    <div class="max-h-full p-4 max-w-[50%] overflow-hidden">
-      <img src={frontmatter.name} class="object-cover h-full w-full" />
+  <main class="h-screen dark:text-white flex w-full relative">
+    <div class="absolute top-1/2 left-0 w-full h-px bg-black dark:bg-white">
     </div>
-    <div class="w-full">
-      <div class="p-4 absolute top-0 right-0">
-        <img
-          src={frontmatter.name}
-          class="max-h-[40vh] max-w-[30vw] "
-        />
-        <a href="/galeria">Nom galeria</a>
+
+    <div class="hidden md:block p-4 absolute top-0 right-0">
+      <a href=`/imatge/${frontmatter.next}`>
+        <img src={frontmatter.nextImg} class="max-h-[40vh] max-w-[30vw]" /></a
+      >
+      <a
+        transition:animate={slide({ duration: "1s" })}
+        href=`/galeria/${frontmatter.galeria}`
+        >{frontmatter.galeria.toUpperCase()}</a
+      >
+    </div>
+    <div
+      class="hidden md:block h-screen p-4 max-w-1/2 overflow-hidden bottom-0 "
+    >
+      <a href={frontmatter.name}>
+        <img src={frontmatter.name} class="object-cover h-screen" />
+      </a>
+    </div>
+    <div class="aboslute content-center justify-center">
+      <div class="p-4 pt-[5%]" transition:animate={slide({ duration: "1s" })}>
+        <p>{frontmatter.pubDate.slice(0, 10)}</p>
+        <p><em>{frontmatter.description}</em></p>
+        <p>Autor: {frontmatter.author}</p>
+        <p>{frontmatter.title}</p>
       </div>
-      <div>
-        <div class="absolute bottom-0 p-4 flex justify-between w-[45vw]">
-          <div>
-            <p>{frontmatter.pubDate.slice(0, 10)}</p>
-            <p><em>{frontmatter.description}</em></p>
-            <p>Escrito por: {frontmatter.author}</p>
-            <p>{frontmatter.name}</p>
-            <div class="tags">
-              {
-                frontmatter.tags.map((tag: any) => (
-                  <p class="tag">
-                    <a href={`/tags/${tag}`}>{tag}</a>
-                  </p>
-                ))
-              }
-            </div>
-          </div>
-          <div class="absolute bottom-4 right-0">
-            <p>
-              <a href="#">prev</a> / <a href="#">next</a>
-            </p>
-          </div>
-        </div>
+      <div class="block md:hidden pt-24">
+        <a href={frontmatter.name}>
+          <img src={frontmatter.name} class="object-cover max-h-1/2 w-full" />
+        </a>
+      </div>
+
+      <div class="absolute bottom-4 right-4 flex gap-8">
+        <Theme />
+        <p>
+          <a href=`/imatge/${frontmatter.prev}/`>prev</a> / <a
+            href=`/imatge/${frontmatter.next}`>next</a
+          >
+        </p>
       </div>
     </div>
   </main>
 </Layout>
+
 <style>
   a {
     position: relative;

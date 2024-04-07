@@ -24,21 +24,19 @@ import { Icon } from "astro-icon/components";
     />
     <ViewTransitions />
   </head>
-  <body>
+  <body class="dark:bg-black dark:text-white">
     <header class="fixed z-50">
       <a
-        class="z-50 text-left text-white text-4xl absolute top-8 left-8 hover-effect"
+        class="z-50 text-left text-4xl absolute top-8 left-8 hover-effect"
         href="/"
-        ><h1 transition:animate={slide({duration: '1s'})}>
+        ><h1 transition:animate={slide({ duration: "1s" })}>
           @{title.toUpperCase()}
         </h1>
       </a>
     </header>
     <slot />
-    <footer
-      class="border-t border-white flex justify-between pl-8 pr-8 pt-8 pb-12"
-    >
-      <div class="text-white">
+    <footer class="border-t flex justify-between pl-8 pr-8 pt-8 pb-12">
+      <div>
         <p>UX and UI made with ❤️ by Jramma</p>
         <p class="mt-2">📍 Barcelona, Catalunya</p>
         <p class="mt-8">Software dev, skipper & philosopher.</p>
@@ -47,7 +45,7 @@ import { Icon } from "astro-icon/components";
         <p>Improved with ❤️ by Mortensen</p>
         <p class="mt-2">Torres i Amat 21, 3r<br />08001 Barcelona</p>
       </div> -->
-      <div class="text-white text-right flex gap-8">
+      <div class="text-right flex gap-8">
         <a href="https://www.instagram.com/jramma1/">
           <Icon class="h-6 w-6" name="insta" />
         </a>
@@ -61,7 +59,6 @@ import { Icon } from "astro-icon/components";
     </footer>
     <style is:global>
       :root {
-        z-index: 0;
         --accent: 136, 58, 234;
         --accent-light: 224, 204, 250;
         --accent-dark: 49, 10, 101;
@@ -73,33 +70,22 @@ import { Icon } from "astro-icon/components";
         );
         --font-family: "Roboto Mono", monospace;
       }
-      body::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background: white;
-      }
+
       body {
         font-family: var(--font-family);
       }
       html {
         font-family: var(--font-family);
-        background: black;
+
         background-size: 224px;
       }
-      .scrolled {
-        color: red; /* Cambia esto al color que quieras */
-      }
-      .hover-effect {
+      a {
         position: relative;
         text-decoration: none;
         overflow: hidden;
       }
 
-      .hover-effect::after {
+      a::after {
         content: "";
         position: absolute;
         width: 0;
@@ -110,11 +96,8 @@ import { Icon } from "astro-icon/components";
         transition: width 0.4s;
       }
 
-      .hover-effect:hover::after {
+      a:hover::after {
         width: 100%;
-      }
-      .scrollbar-hide {
-        scrollbar-width: none;
       }
     </style>
   </body>

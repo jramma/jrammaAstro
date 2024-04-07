@@ -1,43 +1,98 @@
 ---
 import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
-
+import { fade, slide } from "astro:transitions";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout title="Jramma">
-  <main class="text-white h-screen">
-    <div class="flex gap-2 m-2 overflow-hidden">
-      {frontmatter.imatges.map((img: string, i: number) => {
-        // Extrae el nombre de la imagen de la ruta
-        const nom = img.split('/')[2].split('.')[0];
-
-        return (
-          <a href={`/imatge/${nom}/`} key={i}>
-            <div class="m-2 transform transition-all duration-500 hover:scale-110 cursor-pointer">
-
-            <img src={img} alt={nom} class="max-h-[30vh]"/>  <p>{i+1}</p>
-          </div>
-          </a>
-        );
-      })}
+  <main class="dark:text-white h-screen">
+    <div
+      transition:animate={slide({ duration: "1s" })}
+      class="absolute right-0 top-1/2"
+    >
+      <a class="justify-between flex" href="/"
+        ><Icon class="mr-2 mt-[0.6vh]" name={"arrow"} /><p>
+          Tornar al inici
+        </p></a
+      >
     </div>
-    <div class="absolute top-[42vh] ml-4">
+    
+    <div
+      transition:animate={slide({ duration: "1s" })}
+      class="absolute top-1/2 right-0 w-[50%] sm:w-[80%] h-px bg-black dark:bg-white"
+    >
+    </div>
+
+    <div
+      id="imatges"
+      class="flex gap-2 m-2 w-full scroll-y-hidden overflow-x-auto whitespace-nowrap max-w-[99%]"
+    >
+      <ul class="whitespace-nowrap scroll-y-hidden">
+        {
+          frontmatter.imatges.map((img: string, i: number) => {
+            // Extrae el nombre de la imagen de la ruta
+            const nom = img.split("/")[2].split(".")[0];
+
+            return (
+              <li class="scroll-y-hidden inline-block m-2 transform transition-all duration-500 hover:scale-110 cursor-pointer">
+                <a href={`/imatge/${nom}/`}>
+                  <img src={img} class="max-h-[25vh]" alt={nom} />{" "}
+                  <p>{i + 1}</p>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+
+    <div
+      class="absolute top-[42vh] ml-4"
+      transition:animate={slide({ duration: "1s" })}
+    >
       <h3 class="text-2xl font-bold">Autor:</h3>
       <p class="text-lg ml-8">{frontmatter.autor}</p>
       <h3 class="text-2xl font-bold">Lloc:</h3>
       <p class="text-lg ml-8">{frontmatter.lloc}</p>
     </div>
-    <div class="absolute bottom-0  pl-4 pb-4">
+    <div class="absolute bottom-0 pl-4 pb-4">
       <div class="flex flex-grow justify-between">
         <p>{frontmatter.data}</p>
         <div class="flex gap-8">
-          <a class="z-30 " href="/"> Més galerías </a>
+          <a class="z-30" href="/index"> Més galeries </a>
           <p>(100)</p>
         </div>
       </div>
       <div class="w-full flex items-center justify-center">
-        <h1 class="text-[22vw] m-0 p-0" style="line-height: 0.8;">HORITZO</h1>
+        <h1
+          transition:animate={fade({ duration: "0.8s" })}
+          class="text-[15vw] m-0 p-0"
+          style="line-height: 0.8;"
+        >
+          {frontmatter.title}
+        </h1>
       </div>
     </div>
   </main>
+  <style>
+    .marquee {
+      z-index: 200;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      padding-left: 150%;
+      animation: marquee 40s linear infinite;
+      
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
 </Layout>
