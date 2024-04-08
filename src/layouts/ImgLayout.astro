@@ -3,17 +3,27 @@ import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
 import { fade, slide } from "astro:transitions";
 import Theme from "../components/Theme.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout title={frontmatter.title}>
-  <main class="h-screen dark:text-white flex w-full relative">
-    <div class="absolute right-4 top-4">
+  <main class="md:h-screen dark:text-white flex w-full relative">
+    <div class="absolute right-4 top-4 ">
       <a         href=`/galeria/${frontmatter.galeria}`
       >Eixir</a> / <a href="/">Inici</a>
     </div>
     <div class="absolute top-1/2 left-0 w-full h-px bg-black dark:bg-white">
     </div>
-
+    <div
+    transition:animate={slide({ duration: "1s" })}
+    class="absolute right-2 top-1/2"
+  >
+    <a class="justify-between flex" href="/"
+      ><Icon class="mr-2 mt-[0.6vh]" name={"arrow"} /><p>
+        Tornar al inici
+      </p></a
+    >
+  </div>
     <div class="hidden md:block p-4 absolute top-0 right-0">
       <a href=`/imatge/${frontmatter.next}`>
         <img src={frontmatter.nextImg} class="max-h-[40vh] max-w-[30vw]" /></a
@@ -31,7 +41,7 @@ import Theme from "../components/Theme.astro";
         <img src={frontmatter.name} class="object-cover h-screen" />
       </a>
     </div>
-    <div class="aboslute content-center justify-center">
+    <div class="aboslute content-center justify-center md:pt-0  pt-12">
       <div class="p-4 pt-[5%]" transition:animate={slide({ duration: "1s" })}>
         <p>{frontmatter.pubDate.slice(0, 10)}</p>
         <p><em>{frontmatter.description}</em></p>
@@ -40,11 +50,11 @@ import Theme from "../components/Theme.astro";
       </div>
       <div class="block md:hidden pt-24">
         <a href={frontmatter.name}>
-          <img src={frontmatter.name} class="object-cover max-h-[70vh] w-full" />
+          <img src={frontmatter.name} class="object-cover  w-full" />
         </a>
       </div>
 
-      <div class="md:absolute bottom-4 right-4 flex gap-8">
+      <div class="md:absolute bottom-4 right-4 flex gap-8 md:pb-0  pb-12">
         <div class="mb-2 hidden md:block"><Theme/></div>
         <p>
           <a href=`/imatge/${frontmatter.prev}/`>Anterior</a> / <a

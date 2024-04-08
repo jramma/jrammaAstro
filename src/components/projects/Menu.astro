@@ -1,11 +1,21 @@
 ---
-import {  slide } from "astro:transitions";
-
+import { slide } from "astro:transitions";
 ---
 
-<div class="sticky top-24 text-white ml-8" transition:animate={slide({duration: '1s'})}>
+<div class="sticky top-24 dark:text-white ml-8 z-50 w-36" transition:animate={slide({duration: '1s'})}>
   <ol>
-    <li><a href="/foto">Fotografia</a></li>
-    <li><a href="/contact">Contacte</a></li>
+    <li><a href="/foto" class="scroll-link">Fotografia</a></li>
+    <li><a href="/contact" class="scroll-link">Contacte</a></li>
   </ol>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('scroll', function() {
+      const links = document.querySelectorAll('.scroll-link');
+      links.forEach(link => {
+        link.classList.add('hidden');
+      });
+    });
+  });
+</script>
