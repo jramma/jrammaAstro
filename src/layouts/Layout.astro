@@ -29,7 +29,7 @@ import { Icon } from "astro-icon/components";
       }
     </script>
   </head>
-  <body class="dark:bg-black">
+  <body class="dark:bg-black scrollbar-hide">
     <slot />
     <footer
       class="dark:text-white border-t dark:border-white border-black flex flex-col sm:flex-row justify-center items-center text-center sm:text-left sm:justify-between pl-8 pr-8 pt-8 pb-12"
@@ -43,7 +43,9 @@ import { Icon } from "astro-icon/components";
         <p>Improved with ❤️ by Mortensen </p>
         <p class="mt-2">Torres i Amat 21, 3r<br>08001 Barcelona</p>
       </div> -->
-      <div class="text-right flex gap-8 justify-center sm:justify-end mt-8 sm:mt-0">
+      <div
+        class="text-right flex gap-8 justify-center sm:justify-end mt-8 sm:mt-0"
+      >
         <a href="https://www.instagram.com/jramma1/">
           <Icon class="h-6 w-6" name="insta" />
         </a>
@@ -68,34 +70,20 @@ import { Icon } from "astro-icon/components";
         );
         --font-family: "Roboto Mono", monospace;
       }
+      /* Oculta la barra de desplazamiento para Chrome, Safari y Opera */
+      ::-webkit-scrollbar {
+        display: none;
+      }
 
+     
       body {
         font-family: var(--font-family);
       }
       html {
         font-family: var(--font-family);
-
+        scrollbar-width: none;
+        -ms-overflow-style: none; 
         background-size: 224px;
-      }
-      a {
-        position: relative;
-        text-decoration: none;
-        overflow: hidden;
-      }
-
-      a::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -2px;
-        left: 0;
-        background-color: #fff;
-        transition: width 0.4s;
-      }
-
-      a:hover::after {
-        width: 100%;
       }
     </style>
   </body>

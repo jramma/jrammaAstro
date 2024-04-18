@@ -1,0 +1,72 @@
+---
+interface Props {
+  imatges: string[];
+}
+const { imatges } = Astro.props;
+import { Icon } from "astro-icon/components";
+---
+<section>
+    <div
+      class="swiper mySwiper flex gap-2 m-2 w-full scroll-y-hidden overflow-x-auto whitespace-nowrap max-w-[99%] relative"
+    >
+      <div class="swiper-wrapper whitespace-nowrap scroll-y-hidden">
+        {
+          imatges.map((img: string, i: number) => {
+            // Extrae el nombre de la imagen de la ruta
+            const nom = img.split("/")[2].split(".")[0];
+
+            return (
+              <div class="swiper-slide scroll-y-hidden inline-block m-2 transform transition-all duration-500 hover:scale-110 cursor-pointer">
+                <a href={`/imatge/${nom}/`}>
+                  <img src={img} class="max-h-[25vh]" alt={nom} />{" "}
+                  <p>{i + 1}</p>
+                </a>
+              </div>
+            );
+          })
+        }
+      </div>
+      <div class="swiper-button-next z-50 absolute top-1/2 right-0 transform -translate-y-1/2">
+        <Icon name="dreta" class="dark:text-white w-12 h-12" />
+      </div>
+      <div class="swiper-button-prev z-50 absolute top-1/2 left-0 transform -translate-y-1/2">
+        <Icon name="left" class="dark:text-white w-12 h-12" />
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+    ></script>
+    <script>
+      import Swiper from "swiper";
+
+      var swiper = new Swiper(".mySwiper", {
+        rewind: true,
+        loop: true,
+        direction: "horizontal",
+        slidesPerView: "auto",
+        spaceBetween: 2,
+        mousewheel: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+    <style>
+      div {
+        scrollbar-width: none;
+      }
+    </style>
+</section>
+
+    <!-- https://swiperjs.com/get-started
+https://codesandbox.io/p/sandbox/xctr65?file=%2Findex.html%3A84%2C2-93%2C12
+https://codesandbox.io/p/sandbox/kdsdk3?file=%2Findex.html
+https://codesandbox.io/p/sandbox/mg9ssk?file=%2Findex.html -->

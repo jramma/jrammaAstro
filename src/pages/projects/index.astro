@@ -1,38 +1,40 @@
 ---
-import PagesLayout from "../../layouts/PagesLayout.astro";
 import SectionProjects from "../../components/projects/SectionProjects.astro";
 import SectionProjectsOposite from "../../components/projects/SectionProjectsOposite.astro";
 import master from "../../data/master.json";
-import { fade } from "astro:transitions";
-
-const anim = {
-  old: {
-    name: "fadeIn",
-    duration: "0.2s",
-    easing: "linear",
-    fillMode: "forwards",
-  },
-  new: {
-    name: "fadeOut",
-    duration: "0.3s",
-    easing: "linear",
-    fillMode: "backwards",
-  },
-};
-
-const myFade = {
-  forwards: anim,
-  backwards: anim,
-};
+import { fade, slide } from "astro:transitions";
+import Layout from "../../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+import Theme from "../../components/Theme.astro";
 ---
 
-<PagesLayout title="Jramma">
-  <main class="w-full dark:text-white mb-22">
-    
-    <div class="absolute top-1/2 left-0 w-10 h-px bg-black dark:bg-white"></div>
+<Layout title="Jramma">
+  <header
+    class="fixed flex p-8 pb-4 justify-between items-center dark:bg-black bg-white w-full z-50 shadow-md"
+  >
+    <a href="/"><h1 class="dark:text-white text-4xl">@Jramma</h1></a>
+    <div class="dark:text-white flex gap-8">
+      <a href="https://github.com/jramma"><Icon name="git" class="w-7 h-7" /></a
+      >
+      <Theme />
+    </div>
+  </header>
+  <main class="w-full dark:text-white mb-22 pt-12">
+    <div class="absolute top-1/2 left-0 w-full h-px bg-black dark:bg-white">
+    </div>
     <div
-      class="mt-10 border-t-2 border-b-2 border-black dark:border-white w-2/3 absolute right-0 overflow-hidden"
-      transition:animate={myFade}
+      transition:animate={slide({ duration: "1s" })}
+      class="absolute right-0 top-1/2"
+    >
+      <a class="justify-between flex" href="/"
+        ><Icon class="mr-2 mt-[0.6vh]" name={"arrow"} /><p>
+          Tornar al inici
+        </p></a
+      >
+    </div>
+    <div
+      transition:animate={slide({ duration: "1s" })}
+      class="mt-12 border-t-2 border-b-2 border-black dark:border-white w-2/3 absolute right-0 overflow-hidden"
     >
       <p class="marquee">
         Desenvolupador de programari / Projectes públics al github / UX i UI /
@@ -50,13 +52,16 @@ const myFade = {
         FURONER
       </h2>
     </div>
-    <div class="mb-40 mt-32 flex flex-col gap-20" transition:animate={fade({ duration: "1s" })}>
+    <div
+      class="mb-40 mt-32 flex flex-col gap-20"
+      transition:animate={slide({ duration: "1s" })}
+    >
       <SectionProjects title="PROJECTES MASTER" contents={master} />
       <SectionProjectsOposite title="P. PÚBLICS" contents={master} />
       <SectionProjects title="P. HACKATONS" contents={master} />
     </div>
   </main>
-</PagesLayout>
+</Layout>
 
 <style>
   .astro-a {

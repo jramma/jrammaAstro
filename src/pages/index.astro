@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Title from "../components/home/Title.astro";
 import { fade } from 'astro:transitions';
 import Theme from "../components/Theme.astro"
+import Enllac from "../components/Enllac.astro";
 ---
 
 <Layout title="Jramma">
@@ -17,13 +18,13 @@ import Theme from "../components/Theme.astro"
       </div>
       <ul class="flex flex-col sm:flex-row gap-2 sm:gap-12 w-full justify-center items-center mb-8 sm:mb-4">
         <li transition:animate={fade({ duration: '0.8s' })}>
-          <a href="#">Projectes</a>
+          <Enllac nom="Projectes" href="#"/>
         </li>
         <li transition:animate={fade({ duration: '0.2s' })}>
-          <a href="/galeries">Fotografia</a>
+          <Enllac nom="Fotografia" href="/galeries"/>
         </li>
         <li transition:animate={fade({ duration: '0.5s' })}>
-          <a href="/contact">Contacte</a>
+          <Enllac nom="Contacte" href="/contact"/>
         </li>
       </ul>
     </div>

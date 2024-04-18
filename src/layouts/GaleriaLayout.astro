@@ -4,20 +4,13 @@ const { frontmatter } = Astro.props;
 import { fade, slide } from "astro:transitions";
 import { Icon } from "astro-icon/components";
 import Theme from "../components/Theme.astro";
+import GaleriaSlider from "../components/foto/GaleriaSlider.astro";
+import TornarInici from "../components/TornarInici.astro";
 ---
 
 <Layout title="Jramma">
   <main class="dark:text-white h-screen">
-    <div
-      transition:animate={slide({ duration: "1s" })}
-      class="absolute right-2 top-1/2"
-    >
-      <a class="justify-between flex" href="/"
-        ><Icon class="mr-2 mt-[0.6vh]" name={"arrow"} /><p>
-          Tornar al inici
-        </p></a
-      >
-    </div>
+   <TornarInici/>
     <div class="absolute right-2 top-[46%]">
     <Theme />
   </div>
@@ -27,28 +20,8 @@ import Theme from "../components/Theme.astro";
     >
     </div>
 
-    <div
-      id="imatges"
-      class="flex gap-2 m-2 w-full scroll-y-hidden overflow-x-auto whitespace-nowrap max-w-[99%]"
-    >
-      <ul class="whitespace-nowrap scroll-y-hidden">
-        {
-          frontmatter.imatges.map((img: string, i: number) => {
-            // Extrae el nombre de la imagen de la ruta
-            const nom = img.split("/")[2].split(".")[0];
-
-            return (
-              <li class="scroll-y-hidden inline-block m-2 transform transition-all duration-500 hover:scale-110 cursor-pointer">
-                <a href={`/imatge/${nom}/`}>
-                  <img src={img} class="max-h-[25vh]" alt={nom} />{" "}
-                  <p>{i + 1}</p>
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
-    </div>
+   
+    <GaleriaSlider imatges={frontmatter.imatges}/>
 
     <div
       class="absolute top-[42vh] ml-4"

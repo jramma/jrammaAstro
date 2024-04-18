@@ -1,12 +1,18 @@
 ---
 import { Icon } from "astro-icon/components";
-import StaticPage from "../../layouts/StaticPage.astro";
+import Layout from "../../layouts/Layout.astro";
 import Theme from "../../components/Theme.astro"
+import TornarInici from "../../components/TornarInici.astro"
 
 ---
 
-<StaticPage title="Jramma">
+<Layout title="Jramma">
   <main class="h-[75vh] content-center">
+    <div class="absolute top-4 left-8">
+      <a href="/"><h1 class="text-4xl font-bold dark:text-white">@Jramma</h1></a>
+    </div>
+    <TornarInici/>
+    <div class="absolute top-1/2 left-0 w-full h-px bg-black dark:bg-white"></div>
     <div class="absolute right-8 top-8">
       <Theme />
     </div>
@@ -22,5 +28,5 @@ import Theme from "../../components/Theme.astro"
       </a>
     </div>
   </main>
-</StaticPage>
+</Layout>
 
