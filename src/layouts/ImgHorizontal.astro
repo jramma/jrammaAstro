@@ -15,7 +15,7 @@ import { Icon } from "astro-icon/components";
     <div class="absolute top-1/2 left-0 w-full h-px bg-black dark:bg-white">
     </div>
     <div
-      transition:animate={slide({ duration: "1s" })}
+      transition:animate={slide({ duration: "0.7s" })}
       class="absolute right-2 top-1/2"
     >
       <a class="justify-between flex" href="/"
@@ -29,13 +29,13 @@ import { Icon } from "astro-icon/components";
         <img src={frontmatter.nextImg} class="max-h-[40vh] max-w-[30vw]" /></a
       >
       <a
-        transition:animate={slide({ duration: "1s" })}
+        transition:animate={slide({ duration: "0.5s" })}
         href=`/galeria/${frontmatter.galeria}`
         >{frontmatter.galeria.toUpperCase()}</a
       >
     </div>
     <div class="w-full mt-12 md:mt-0">
-      <div class="p-4 pt-[5%]" transition:animate={slide({ duration: "1s" })}>
+      <div class="p-4 pt-[5%]" transition:animate={slide({ duration: "0.4s" })}>
         <p>{frontmatter.pubDate.slice(0, 10)}</p>
         <p><em>{frontmatter.description}</em></p>
         <p>Autor: {frontmatter.author}</p>

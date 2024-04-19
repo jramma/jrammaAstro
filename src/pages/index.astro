@@ -17,20 +17,20 @@ import Enllac from "../components/Enllac.astro";
         <Title title="jramma">
       </div>
       <ul class="flex flex-col sm:flex-row gap-2 sm:gap-12 w-full justify-center items-center mb-8 sm:mb-4">
-        <li transition:animate={fade({ duration: '0.8s' })}>
+        <li transition:animate={fade({ duration: '0.5s' })}>
           <Enllac nom="Projectes" href="#"/>
         </li>
-        <li transition:animate={fade({ duration: '0.2s' })}>
+        <li transition:animate={fade({ duration: '0.1s' })}>
           <Enllac nom="Fotografia" href="/galeries"/>
         </li>
-        <li transition:animate={fade({ duration: '0.5s' })}>
+        <li transition:animate={fade({ duration: '0.4s' })}>
           <Enllac nom="Contacte" href="/contact"/>
         </li>
       </ul>
     </div>
     <div class="h-[50%]">
       <div class="flex flex-col justify-center items-center mt-8">
-        <div class="max-w-2xl p-8"  transition:animate={fade({ duration: '1.5s' })}>
+        <div class="max-w-2xl p-8"  transition:animate={fade({ duration: '0.6s' })}>
           <p class="max-w-xl text-center">
             ..el sentit es "aclareix" només per mitjà d'una interpretació de
             l'horitzó <span class="hidden md:block">i dels horitzons constantment conjurats de nou. La
@@ -44,8 +44,7 @@ import Enllac from "../components/Enllac.astro";
       </div>
     </div>
     <div class="absolute bottom-0 right-8">
-      <p>© 2024 Jramma</p>
-    </div>
+      <p>© 2024 <a href="https://github.com/jramma" class="transition-colors duration-500 ease-in-out hover:text-purple-400">Jramma</a></p>    </div>
   </main>
 </Layout>
 
