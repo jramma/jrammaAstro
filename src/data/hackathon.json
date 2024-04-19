@@ -1,0 +1,19 @@
+[
+    {
+        "title": "Tech4Good",
+        "content": "API para encontrar comercios locales",
+        "href": "https://github.com/jramma/tech4goodTeam3Back"
+    }, {
+        "title": "BarsaHackathon",
+        "content": "API para aplicación de fútbol femenino",
+        "href": "https://github.com/jramma/EDAG"
+    }, {
+        "title": "VuelingHackathon",
+        "content": "Calcular el mejor precio, para la empresa, para gestionar vuelos",
+        "href": "https://github.com/jramma/VuelingHackathon"
+    }, {
+        "title": "Jump2Digital",
+        "content": "Proyecto ganador de gestión de logistica de empresas de alimentos",
+        "href": "https://github.com/jramma/Jump2Digital-Team5-BackEnd"
+    }
+]

@@ -2,6 +2,8 @@
 import SectionProjects from "../../components/projects/SectionProjects.astro";
 import SectionProjectsOposite from "../../components/projects/SectionProjectsOposite.astro";
 import master from "../../data/master.json";
+import hackathon from "../../data/hackathon.json";
+import publics from "../../data/public.json";
 import { fade, slide } from "astro:transitions";
 import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
@@ -59,10 +61,10 @@ import Theme from "../../components/Theme.astro";
       <SectionProjects title="PROJECTES MASTER" contents={master} />
       <div class="w-full h-px bg-black dark:bg-white mt-2 mb-2"></div>
 
-      <SectionProjectsOposite title="PROJECTES PÚBLICS" contents={master} />
+      <SectionProjectsOposite title="PROJECTES PÚBLICS" contents={publics} />
       <div class="w-full h-px bg-black dark:bg-white mt-2 mb-2"></div>
 
-      <SectionProjects title="PROJECTES HACKATONS" contents={master} />
+      <SectionProjects title="PROJECTES HACKATONS" contents={hackathon} />
     </div>
   </main>
 </Layout>

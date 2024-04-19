@@ -1,0 +1,19 @@
+[
+    {
+        "title": "API con JS, JWT y MongoDB",
+        "content": "Gestionar datos con seguridad json web token y base de datos no relacional",
+        "href": "https://github.com/jramma/API-JS-JWT-MongoDB"
+    }, {
+        "title": "Mi primera web",
+        "content": "Web con css y html.",
+        "href": "https://github.com/jramma/OldWeb-myFirstWeb/tree/main"
+    }, {
+        "title": "API Java",
+        "content": "API proyecto de gestión de pimes en Barcelona.",
+        "href": "https://github.com/jramma/UsAcompanyem-Backend"
+    }, {
+        "title": "Mi primer portfolio en Astro", 
+        "content": "Astro",
+        "href": "https://github.com/jramma/AstroCVFirst"
+    }
+]
