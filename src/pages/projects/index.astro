@@ -20,18 +20,6 @@ import Theme from "../../components/Theme.astro";
     </div>
   </header>
   <main class="w-full dark:text-white mb-22 pt-12">
-    <div class="absolute top-1/2 left-0 w-full h-px bg-black dark:bg-white">
-    </div>
-    <div
-      transition:animate={slide({ duration: "1s" })}
-      class="absolute right-0 top-1/2"
-    >
-      <a class="justify-between flex" href="/"
-        ><Icon class="mr-2 mt-[0.6vh]" name={"arrow"} /><p>
-          Tornar al inici
-        </p></a
-      >
-    </div>
     <div
       transition:animate={slide({ duration: "1s" })}
       class="mt-12 border-t-2 border-b-2 border-black dark:border-white w-2/3 absolute right-0 overflow-hidden"
@@ -47,18 +35,34 @@ import Theme from "../../components/Theme.astro";
         >
       </p>
     </div>
-    <div class="flex justify-center items-center h-[50vh]">
-      <h2 class="text-[15vw]" transition:animate={fade({ duration: "2s" })}>
+    <div class="flex flex-col justify-center items-center pt-20">
+      <h2 class="text-[15rem]" transition:animate={fade({ duration: "0.5s" })}>
         FURONER
       </h2>
+      <div class="w-full h-px bg-black dark:bg-white">
+        <div
+          transition:animate={slide({ duration: "2s" })}
+          class="flex w-full justify-end"
+        >
+          <a class="justify-between flex mt-2 mr-6" href="/"
+            ><Icon class="mr-2 mt-[0.6vh]" name={"arrow"} /><p>
+              Tornar al inici
+            </p></a
+          >
+        </div>
+      </div>
     </div>
     <div
-      class="mb-40 mt-32 flex flex-col gap-y-80"
+      class="mb-40 mt-32 flex flex-col gap-y-20"
       transition:animate={slide({ duration: "1s" })}
     >
-      <SectionProjects title="MASTER" contents={master} />
-      <SectionProjectsOposite title="P. PÚBLICS" contents={master} />
-      <SectionProjects title="P. HACKATONS" contents={master} />
+      <SectionProjects title="PROJECTES MASTER" contents={master} />
+      <div class="w-full h-px bg-black dark:bg-white mt-2 mb-2"></div>
+
+      <SectionProjectsOposite title="PROJECTES PÚBLICS" contents={master} />
+      <div class="w-full h-px bg-black dark:bg-white mt-2 mb-2"></div>
+
+      <SectionProjects title="PROJECTES HACKATONS" contents={master} />
     </div>
   </main>
 </Layout>
