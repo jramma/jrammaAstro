@@ -17,6 +17,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.5.16",
     "astro-icon": "^1.1.0",
+    "photoswipe": "^5.4.3",
     "preact": "^10.20.1",
     "swiper": "^11.1.0",
     "tailwind-scrollbar-hide": "^1.1.7",
