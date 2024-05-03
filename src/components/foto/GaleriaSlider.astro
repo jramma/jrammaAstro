@@ -16,7 +16,6 @@ import "swiper/css";
           imatges.map((img: string, i: number) => {
             // Extrae el nombre de la imagen de la ruta
             const nom = img.split("/")[2].split(".")[0];
-
             return (
               <div class="swiper-slide ">
                 <a href={`/imatge/${nom}/`}>
@@ -45,7 +44,7 @@ import "swiper/css";
         <Icon name="left" class="dark:text-white w-12 h-12" />
       </div>
       <div class="next">
-        <Icon name="dreta" class="dark:text-white w-12 h-12" />
+        <Icon name="dreta" class="dark:text-white w-12 h-12"/>
       </div>
     </div>
   </div>
@@ -57,7 +56,7 @@ import "swiper/css";
   }
   .swiper.main {
     margin-top: 0.5rem;
-    width: 100%;
+    width: 99%;
     height: 40%;
   }
   .swiper.thumbs {
@@ -129,6 +128,6 @@ import "swiper/css";
     transform: translateY(-50%);
   }
 </style>
-<script src="../../libs/slider_thumbnail.js"></script>
+<script  src="../../libs/slider_thumbnail.js"></script>
 
 <!-- https://github.com/MicroWebStacks/astro-examples/tree/main/54_swiper-slider -->
