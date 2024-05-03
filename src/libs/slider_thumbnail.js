@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const thumbs_swiper = new Swiper(".thumbs", {
     modules: [FreeMode],
     spaceBetween: 3,
-    slidesPerView: "auto",
+    slidesPerView: 7,
     freeMode: true,
     watchSlidesProgress: true,
   });

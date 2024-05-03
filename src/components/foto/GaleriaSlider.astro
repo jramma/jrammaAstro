@@ -15,7 +15,7 @@ import "swiper/css";
             // Extrae el nombre de la imagen de la ruta
             const nom = img.split("/")[2].split(".")[0];
             return (
-              <div class="swiper-slide scroll-y-hidden inline-block m-2 transform transition-all duration-500 hover:scale-110 cursor-pointer">
+              <div class="items-center swiper-slide scroll-y-hidden inline-block m-2 transform transition-all duration-500 hover:scale-110 cursor-pointer">
                 <a href={`/imatge/${nom}/`}>
                   <img src={img} class="max-h-[25vh]" alt={nom} />{" "}
                 </a>
