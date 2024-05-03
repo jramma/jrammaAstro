@@ -2,69 +2,133 @@
 interface Props {
   imatges: string[];
 }
-const { imatges } = Astro.props;
+
+const { imatges } = await Astro.props;
 import { Icon } from "astro-icon/components";
+import "swiper/css";
 ---
 
 <section>
-  <div
-    class="swiper mySwiper flex gap-2 m-2 w-full scroll-y-hidden overflow-x-auto whitespace-nowrap max-w-[99%] relative"
-  >
-    <div class="swiper-wrapper whitespace-nowrap scroll-y-hidden">
-      {
-        imatges.map((img: string, i: number) => {
-          // Extrae el nombre de la imagen de la ruta
-          const nom = img.split("/")[2].split(".")[0];
+  <div class="swiper-container">
+    <div class="swiper main">
+      <div class="swiper-wrapper">
+        {
+          imatges.map((img: string, i: number) => {
+            // Extrae el nombre de la imagen de la ruta
+            const nom = img.split("/")[2].split(".")[0];
 
-          return (
-            <div class="swiper-slide scroll-y-hidden inline-block m-2 transform transition-all duration-500 hover:scale-110 cursor-pointer">
-              <a href={`/imatge/${nom}/`}>
-                <img src={img} class="max-h-[25vh]" alt={nom} /> <p>{i + 1}</p>
-              </a>
+            return (
+              <div class="swiper-slide ">
+                <a href={`/imatge/${nom}/`}>
+                  <img src={img} class="max-h-[25vh]" alt={nom} />{" "}
+                  <p>{i + 1}</p>
+                </a>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+    <div class="swiper thumbs">
+      <div class="swiper-wrapper">
+        {
+          imatges.map((img, i) => (
+            <div class="swiper-slide">
+              <p>{i + 1}</p>
             </div>
-          );
-        })
-      }
+          ))
+        }
+      </div>
     </div>
-    <div
-      class="swiper-button-next z-50 absolute top-1/2 right-0 transform -translate-y-1/2"
-    >
-      <Icon name="dreta" class="dark:text-white w-12 h-12" />
-    </div>
-    <div
-      class="swiper-button-prev z-50 absolute top-1/2 left-0 transform -translate-y-1/2"
-    >
-      <Icon name="left" class="dark:text-white w-12 h-12" />
+    <div class="z-50">
+      <div class="prev">
+        <Icon name="left" class="dark:text-white w-12 h-12" />
+      </div>
+      <div class="next">
+        <Icon name="dreta" class="dark:text-white w-12 h-12" />
+      </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
-  ></script>
-  <script>
-    import Swiper from "swiper";
-
-    var swiper = new Swiper(".mySwiper", {
-        rewind: true,
-        loop: true,
-        direction: "horizontal",
-        slidesPerView: "auto",
-        spaceBetween: 2,
-        mousewheel: true,
-        autoplay: {
-          delay: 1000,
-          disableOnInteraction: false,
-        },
-       
-        
-      });
-  </script>
-  <style>
-    div {
-      scrollbar-width: none;
-    }
-  </style>
 </section>
+<style>
+  .swiper-container {
+    position: relative;
+    height: 600px;
+  }
+  .swiper.main {
+    margin-top: 0.5rem;
+    width: 100%;
+    height: 40%;
+  }
+  .swiper.thumbs {
+    width: 50%;
+    height: 10px;
+    box-sizing: border-box;
+  }
+  .swiper-slide {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+  }
+  .thumbs .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+    background-color: white;
+  }
 
-<!-- https://swiperjs.com/get-started
-https://codesandbox.io/p/sandbox/xctr65?file=%2Findex.html%3A84%2C2-93%2C12
-https://codesandbox.io/p/sandbox/kdsdk3?file=%2Findex.html
-https://codesandbox.io/p/sandbox/mg9ssk?file=%2Findex.html -->
+  .thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid rgba(var(--accent), 25%);
+    background-color: white;
+    padding: 1px;
+    border-radius: 0.4rem;
+  }
+  .prev{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  .next{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+</style>
+<script src="../../libs/slider_thumbnail.js"></script>
+
+<!-- https://github.com/MicroWebStacks/astro-examples/tree/main/54_swiper-slider -->
