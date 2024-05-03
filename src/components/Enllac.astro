@@ -7,8 +7,9 @@ interface Props {
 const { href, nom } = Astro.props;
 ---
 
-<a class="z-30 group dark:text-white transition duration-300" href={href}
+<a data-astro-reload class="z-30 group dark:text-white transition duration-300" href={href}
   >{nom}<span
     class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 dark:bg-white bg-black"
   ></span>
 </a>
+<!-- IMPORTANTE data-astro-reload para que cargue el script de swiper -->
