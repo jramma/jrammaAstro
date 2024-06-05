@@ -18,11 +18,14 @@ import Enllac from "../components/Enllac.astro";
       <ul
         class="flex flex-col sm:flex-row gap-2 sm:gap-12 w-full justify-center items-center mb-8 sm:mb-4"
       >
+        <li transition:animate={fade({ duration: "0.1s" })}>
+          <Enllac nom="Fotografia" href="/galeries" />
+        </li>
         <li transition:animate={fade({ duration: "0.5s" })}>
           <Enllac nom="Projectes" href="/projects" />
         </li>
-        <li transition:animate={fade({ duration: "0.1s" })}>
-          <Enllac nom="Fotografia" href="/galeries" />
+        <li transition:animate={fade({ duration: "0.3s" })}>
+          <Enllac nom="Documetació" href="https://jramma.github.io/" />
         </li>
         <li transition:animate={fade({ duration: "0.4s" })}>
           <Enllac nom="Contacte" href="/contact" />
