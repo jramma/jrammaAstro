@@ -12,7 +12,7 @@ import "swiper/css/free-mode";
 import "swiper/css/thumbs";
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("aaa");
+  
   const thumbs_swiper = new Swiper(".thumbs", {
     modules: [FreeMode],
     spaceBetween: 3,
